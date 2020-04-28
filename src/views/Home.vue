@@ -1,12 +1,9 @@
 <template>
     <v-app>
-        <NewPost v-if="new_post" @show-posts="new_post=false" @snackbar="error"></NewPost>
+        <v-card class="card" v-if="$store.state.new_post">
+            <NewPost></NewPost>
+        </v-card>
         <Posts v-else></Posts>
-
-        <v-snackbar v-model="snackbar">
-            {{ msg }}
-            <v-btn @click="snackbar=false">Schließen</v-btn>
-        </v-snackbar>
     </v-app>
 </template>
 
@@ -24,18 +21,10 @@ export default {
     data() {
         return {
 
-            snackbar: false,
-            new_post: true,
-            msg: ''
         }
     },
     methods: {
 
-        error(msg) {
-
-            this.msg = msg
-            this.snackbar = true
-        }
     },
     created() {
 
@@ -46,10 +35,21 @@ export default {
             let current_day = date.getDate()
             if (day == current_day) {
 
-                this.new_post = false
+                this.$store.state.new_post = false
             }
         }
     }
 }
 
 </script>
+
+<style>
+
+.card {
+
+    position: relative;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+</style>

@@ -1,6 +1,7 @@
 <template>
-    <v-card class="card">
-        <v-card-text>
+    <div class="wrapper">
+    <!-- <v-card class="card"> -->
+        <!-- <v-card-text> -->
             <h2 class="question">Wofür bist du heute dankbar?</h2>
             <v-form @submit.prevent="submit(post, name)">
                 <v-container>
@@ -15,8 +16,9 @@
                     </v-row>
                 </v-container>
             </v-form>
-        </v-card-text>
-    </v-card>
+        <!-- </v-card-text> -->
+    <!-- </v-card> -->
+    </div>
 </template>
 
 <script>
@@ -38,13 +40,17 @@ export default {
 
             if (post) {
 
-                this.$emit('show-posts')
+                this.$store.state.new_post = false
+                this.$emit('hide-dialog')
                 this.savePost(post, name)
+                this.post = ''
+                this.name = ''
             }
             else {
 
                 // Error message
-                this.$emit('snackbar', 'Bist du für nichts dankbar? Es gibt immer etwas!')
+                this.$store.state.snackbarMessage = 'Bist du für nichts dankbar? Es gibt immer etwas!'
+                this.$store.state.showSnackbar = true
             }
         },
         savePost(post, name) {
@@ -92,6 +98,11 @@ export default {
 .question {
 
     color: rgb(54, 54, 54)
+}
+.wrapper {
+
+    padding: 30px;
+    background-color: white;
 }
 
 </style>

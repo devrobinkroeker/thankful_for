@@ -1,18 +1,33 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <v-btn>Wofür bist du noch dankbar?</v-btn>
+    <v-btn v-if="!$store.state.new_post" @click="showDialog=true">Wofür bist du noch dankbar?</v-btn>
+    <v-dialog width="500" v-model="showDialog">
+      <NewPost @hide-dialog="showDialog=false"></NewPost>
+    </v-dialog>
+
+    <v-snackbar v-model="$store.state.showSnackbar">
+      <span class="msg">{{ $store.state.snackbarMessage }}</span>
+      <v-btn @click="$store.state.showSnackbar=false">Schließen</v-btn>
+    </v-snackbar>
     <router-view/>
   </div>
 </template>
 
 <script>
+import NewPost from '@/components/NewPost'
 
 export default {
   name: 'App',
-  data: () => ({
-    //
-  }),
+  components: {
+
+    NewPost
+  },
+  data() {
+    return {
+
+      showDialog: false
+    }
+  }
 };
 </script>
 
@@ -24,5 +39,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.msg {
+
+  margin-right: 10px;
 }
 </style>

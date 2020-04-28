@@ -5,6 +5,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+
+    new_post: true,
+
+    showSnackbar: false,
+    snackbarMessage: ''
   },
   mutations: {
   },
