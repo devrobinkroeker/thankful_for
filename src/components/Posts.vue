@@ -3,11 +3,15 @@
         <v-app>
             <div class="posts">
                 <v-card class="post" outlined v-for="post in posts" :key="post.id">
-                    <span class="content">{{ post.post }}</span><br>
-                    <div class="additional-info">
-                        <span>Today</span>
+                    <v-card-text>
+                        <v-card-title class="content">
+                            {{ post.post }}
+                        </v-card-title>
+                    </v-card-text>
+                    <v-card-actions class="additional-info">
+                        <span>{{ post.createdAt | date }}</span>
                         <span v-if="post.name">{{ post.name }}</span>
-                    </div>
+                    </v-card-actions>
                 </v-card>
             </div>
         </v-app>
@@ -30,6 +34,15 @@ export default {
 
             posts: db.collection('posts')
         }
+    },
+    filters: {
+
+        date(value) {
+
+            let current_date = new Date().getDate()
+            let post_date = new Date(value * 1000).getDate()
+            return current_date == post_date ? 'Heute' : 'Früher'
+        }
     }
 }
 
@@ -40,25 +53,31 @@ export default {
 .posts {
 
     display: flex;
+    flex-basis: 25%;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 .post {
 
-    width: 25%;
-    padding: 30px 30px 0 30px;
+    /* width: 20em; */
     margin: 10px;
+}
+.content {
+
+    width: auto;
 }
 .additional-info {
 
     font-size: 15px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
+    margin-top: 30px;
+    /* margin-bottom: -20px; */
 }
-.content {
+.divider {
 
-    font-size: 2em;
+    height: 20px;
 }
 
 </style>
