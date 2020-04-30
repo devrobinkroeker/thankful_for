@@ -2,7 +2,7 @@
     <div>
         <v-app>
             <div class="posts">
-                <v-card class="post" outlined v-for="post in posts" :key="post.id">
+                <v-card :style="border_color()" class="post" outlined v-for="post in posts" :key="post.id">
                     <v-card-text>
                         <v-card-title class="content">
                             {{ post.post }}
@@ -32,7 +32,7 @@ export default {
     firestore() {
         return {
 
-            posts: db.collection('posts')
+            posts: db.collection('posts').orderBy('createdAt', 'desc')
         }
     },
     filters: {
@@ -41,7 +41,18 @@ export default {
 
             let current_date = new Date().getDate()
             let post_date = new Date(value * 1000).getDate()
-            return current_date == post_date ? 'Heute' : 'Früher'
+            
+            return post_date == current_date ? 'Heute' : 'Wann anders'
+        }
+    },
+    methods: {
+        
+        border_color() {
+
+            let colors = ['green', 'red', 'blue', 'rgb(236, 216, 30)', 'orange', 'purple', 'orange']
+            let rand = Math.floor(Math.random() * 7)
+
+            return 'border: 2px dashed ' + colors[rand]
         }
     }
 }
@@ -59,7 +70,6 @@ export default {
 }
 .post {
 
-    /* width: 20em; */
     margin: 10px;
 }
 .content {
