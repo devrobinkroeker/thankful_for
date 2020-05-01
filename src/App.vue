@@ -27,6 +27,10 @@ export default {
 
       showDialog: false
     }
+  },
+  created() {
+
+    document.title = 'Dankbar für ...'
   }
 };
 </script>
