@@ -1,20 +1,18 @@
 <template>
     <div>
-        <v-app>
-            <div class="posts">
-                <v-card :style="border_color()" class="post" outlined v-for="post in posts" :key="post.id">
-                    <v-card-text>
-                        <v-card-title class="content">
-                            {{ post.post }}
-                        </v-card-title>
-                    </v-card-text>
-                    <v-card-actions class="additional-info">
-                        <span>{{ post.createdAt | date }}</span>
-                        <span v-if="post.name">{{ post.name }}</span>
-                    </v-card-actions>
-                </v-card>
-            </div>
-        </v-app>
+        <div class="posts">
+            <v-card :style="border_color()" class="post" outlined v-for="post in posts" :key="post.id">
+                <v-card-text>
+                    <v-card-title>
+                        <span class="content">{{ post.post }}</span>
+                    </v-card-title>
+                </v-card-text>
+                <v-card-actions class="additional-info">
+                    <span>{{ post.createdAt | date }}</span>
+                    <span v-if="post.name">{{ post.name }}</span>
+                </v-card-actions>
+            </v-card>
+        </div>
     </div>
 </template>
 
@@ -67,23 +65,24 @@ export default {
     flex-basis: 25%;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
 }
 .post {
 
     margin: 10px;
+    width: 300px;
 }
 .content {
 
-    width: auto;
+    /* width: auto; */
+    text-align: center;
 }
 .additional-info {
 
     font-size: 15px;
-    /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
-    /* margin-bottom: -20px; */
 }
 .divider {
 
