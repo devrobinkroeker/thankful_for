@@ -6,6 +6,19 @@ This is a website made with [VueJs](https://vuejs.org) and [Firebase](https://fi
 ```
 npm install
 ```
+The ```src``` folder has to contain a file called ```firebaseConfig.js``` with this content:
+```
+module.exports = {
+
+    apiKey: "apiKey",
+    authDomain: "<authDomain>",
+    databaseURL: "<databaseURL>",
+    projectId: "<projectId>",
+    storageBucket: "<storageBucket>",
+    messagingSenderId: <messagingSenderId>",
+    appId: "<appId>"
+}
+```
 
 ### Compiles and hot-reloads for development
 ```
