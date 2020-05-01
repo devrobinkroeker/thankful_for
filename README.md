@@ -6,7 +6,7 @@ This is a website made with [VueJs](https://vuejs.org) and [Firebase](https://fi
 ```
 npm install
 ```
-The ```src``` folder has to contain a file called ```firebaseConfig.js``` with this content:
+The ```src``` folder has to contain a file called ```firebaseConfig.js``` with the following content in order to be able to connect to Firestore.
 ```
 module.exports = {
 
