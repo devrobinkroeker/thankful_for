@@ -1,23 +1,19 @@
 <template>
     <div class="wrapper">
-    <!-- <v-card class="card"> -->
-        <!-- <v-card-text> -->
-            <h2 class="question">Wofür bist du heute dankbar?</h2>
-            <v-form @submit.prevent="submit(post, name)">
-                <v-container>
-                    <v-row>
-                        <v-textarea v-model="post" placeholder="Wir machen heute Lagerfeuer ..." class="inputs"></v-textarea>
-                    </v-row>
-                    <v-row class="name">
-                        <v-text-field v-model="name" class="inputs" placeholder="Name (optional)"></v-text-field>
-                    </v-row>
-                    <v-row>
-                        <v-btn type="submit" class="submit">Veröffentlichen</v-btn>
-                    </v-row>
-                </v-container>
-            </v-form>
-        <!-- </v-card-text> -->
-    <!-- </v-card> -->
+        <h2 class="question">Wofür bist du heute dankbar?</h2>
+        <v-form @submit.prevent="submit(post, name)">
+            <v-container>
+                <v-row>
+                    <v-textarea v-model="post" placeholder="Wir machen heute Lagerfeuer ..." class="inputs"></v-textarea>
+                </v-row>
+                <v-row class="name-wrapper">
+                    <v-text-field v-model="name" class="inputs" placeholder="Name (optional)"></v-text-field>
+                </v-row>
+                <v-row class="submit-wrapper">
+                    <v-btn type="submit">Veröffentlichen</v-btn>
+                </v-row>
+            </v-container>
+        </v-form>
     </div>
 </template>
 
@@ -85,15 +81,14 @@ export default {
 
     font-size: 2em;
 }
-.name {
+.name-wrapper {
 
-    width: 50%;
+    max-width: 300px;
 }
-.submit {
+.submit-wrapper {
 
-    position: relative;
-    margin-right: 45%;
-    margin-left: 35%;
+    display: flex;
+    justify-content: center;
 }
 .question {
 
