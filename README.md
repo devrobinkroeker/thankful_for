@@ -10,7 +10,7 @@ The ```src``` folder has to contain a file called ```firebaseConfig.js``` with t
 ```
 module.exports = {
 
-    apiKey: "apiKey",
+    apiKey: "<apiKey>",
     authDomain: "<authDomain>",
     databaseURL: "<databaseURL>",
     projectId: "<projectId>",
