@@ -18,7 +18,8 @@
 </template>
 
 <script>
-import { db } from '@/main'
+// import { db } from '@/main'
+import { functions } from '@/main'
 
 export default {
 
@@ -51,13 +52,11 @@ export default {
         },
         savePost(post, name) {
 
-            db.collection('posts').add({
+            functions.httpsCallable('addPost')({post: post, name: name}).then(() => {
 
-                post: post,
-                name: name,
-                createdAt: new Date(),
-                published: false
+                console.log('Added the post')
             })
+
 
             let date = new Date()
             let day_of_month = date.getDate()

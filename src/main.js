@@ -6,20 +6,14 @@ import vuetify from './plugins/vuetify';
 import { firestorePlugin } from 'vuefire'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import 'firebase/functions'
 import firebaseConfig from './firebaseConfig'
 
 Vue.use(firestorePlugin)
-
-if (process.env.NODE_ENV == 'production') {
-
-  firebase.initializeApp(firebaseConfig.thankful_for)
-}
-else {
-
-  firebase.initializeApp(firebaseConfig.thankful_for_test)
-}
+firebase.initializeApp(firebaseConfig)
 
 export const db = firebase.firestore()
+export const functions = firebase.functions()
 
 Vue.config.productionTip = false
 

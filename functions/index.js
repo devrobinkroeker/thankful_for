@@ -1,8 +1,18 @@
 const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+admin.initializeApp()
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
+exports.addPost = functions.https.onCall(async (data, context) => {
+
+  admin.firestore().collection('posts').add({
+
+    post: data.post,
+    name: data.name,
+    createdAt: new Date(),
+    published: false
+
+  }).then(() => {
+
+    console.log('Added post to firestore from cloud function')
+  })
+})
