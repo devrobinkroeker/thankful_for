@@ -6,30 +6,17 @@ This is a website made with [VueJs](https://vuejs.org) and [Firebase](https://fi
 ```
 npm install
 ```
-The ```src``` folder has to contain a file called ```firebaseConfig.js``` with the following content in order to be able to connect to Firestore. It let's you seperate the production db and development db by the ```NODE_ENV``` variable. Pass the string 'production' for production or any other value for development.
+The ```src``` folder has to contain a file called ```firebaseConfig.js``` with the following content in order to be able to connect to Firestore.
 ```
 module.exports = {
 
-    thankful_for: {
-    
-        apiKey: "<apiKey>",
-        authDomain: "<authDomain>",
-        databaseURL: "<databaseURL>",
-        projectId: "<projectId>",
-        storageBucket: "<storageBucket>",
-        messagingSenderId: <messagingSenderId>",
-        appId: "<appId>"
-    },
-    thankful_for_test: {
-        
-        apiKey: "<apiKey>",
-        authDomain: "<authDomain>",
-        databaseURL: "<databaseURL>",
-        projectId: "<projectId>",
-        storageBucket: "<storageBucket>",
-        messagingSenderId: <messagingSenderId>",
-        appId: "<appId>"
-    }
+    apiKey: "<apiKey>",
+    authDomain: "<authDomain>",
+    databaseURL: "<databaseURL>",
+    projectId: "<projectId>",
+    storageBucket: "<storageBucket>",
+    messagingSenderId: <messagingSenderId>",
+    appId: "<appId>"
 }
 ```
 
