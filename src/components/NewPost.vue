@@ -58,10 +58,10 @@ export default {
             })
 
 
-            let date = new Date()
-            let day_of_month = date.getDate()
+            // let date = new Date()
+            // let day_of_month = date.getDate()
 
-            document.cookie = 'postedOn=' + day_of_month
+            // document.cookie = 'postedOn=' + day_of_month
         }
     }
 }

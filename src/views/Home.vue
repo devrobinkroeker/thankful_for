@@ -1,21 +1,22 @@
 <template>
     <v-app>
-        <v-card class="card" v-if="$store.state.new_post">
+        <!-- <v-card class="card" v-if="$store.state.new_post">
             <NewPost></NewPost>
         </v-card>
-        <Posts v-else></Posts>
+        <Posts v-else></Posts> -->
+        <Posts/>
     </v-app>
 </template>
 
 <script>
-import NewPost from '@/components/NewPost'
+// import NewPost from '@/components/NewPost'
 import Posts from '@/components/Posts'
 
 export default {
 
     components: {
 
-        NewPost,
+        // NewPost,
         Posts
     },
     data() {
@@ -28,16 +29,16 @@ export default {
     },
     created() {
 
-        if (document.cookie) {
+        // if (document.cookie) {
 
-            let day = document.cookie.split('=')[1]
-            let date = new Date()
-            let current_day = date.getDate()
-            if (day == current_day) {
+        //     let day = document.cookie.split('=')[1]
+        //     let date = new Date()
+        //     let current_day = date.getDate()
+        //     if (day == current_day) {
 
-                this.$store.state.new_post = false
-            }
-        }
+        //         this.$store.state.new_post = false
+        //     }
+        // }
     }
 }
 

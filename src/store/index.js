@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
 
-    new_post: true,
+    new_post: false,
 
     showSnackbar: false,
     snackbarMessage: ''

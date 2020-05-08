@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-btn v-if="!$store.state.new_post" @click="showDialog=true">Wofür bist du noch dankbar?</v-btn>
+    <v-btn v-if="!$store.state.new_post" @click="showDialog=true">Wofür bist du heute dankbar?</v-btn>
     <v-dialog width="500" v-model="showDialog">
       <NewPost @hide-dialog="showDialog=false"></NewPost>
     </v-dialog>
