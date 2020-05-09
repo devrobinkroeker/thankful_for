@@ -78,7 +78,7 @@ export default {
 }
 .inputs {
 
-    font-size: 2em;
+    font-size: 16px;
 }
 .name-wrapper {
 
