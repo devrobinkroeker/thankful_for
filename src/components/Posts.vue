@@ -3,7 +3,7 @@
         <div class="posts">
             <v-card :style="border_color()" class="post" outlined v-for="post in posts" :key="post.id">
                 <v-card-text>
-                    <v-card-title>
+                    <v-card-title class="content-wrapper">
                         <span class="content">{{ post.post }}</span>
                     </v-card-title>
                 </v-card-text>
@@ -72,9 +72,12 @@ export default {
     margin: 10px;
     width: 300px;
 }
+.content-wrapper {
+
+    word-break: normal !important;
+}
 .content {
 
-    /* width: auto; */
     text-align: center;
 }
 .additional-info {
