@@ -18,7 +18,6 @@
 </template>
 
 <script>
-// import { db } from '@/main'
 import { functions } from '@/main'
 
 export default {
@@ -56,12 +55,6 @@ export default {
 
                 console.log('Added the post')
             })
-
-
-            // let date = new Date()
-            // let day_of_month = date.getDate()
-
-            // document.cookie = 'postedOn=' + day_of_month
         }
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <v-app>
         <div class="posts">
             <v-card :style="border_color()" class="post" outlined v-for="post in posts" :key="post.id">
                 <v-card-text>
@@ -13,7 +13,7 @@
                 </v-card-actions>
             </v-card>
         </div>
-    </div>
+    </v-app>
 </template>
 
 <script>
