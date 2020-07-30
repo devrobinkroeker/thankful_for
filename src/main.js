@@ -17,6 +17,18 @@ export const functions = firebase.functions()
 
 Vue.config.productionTip = false
 
+// In case of a PWA initialize the service worker
+if ('serviceWorker' in navigator) {
+
+  navigator.serviceWorker.register(window.location.href + 'sw.js').then(() => {
+
+    console.log('SW registered.');
+  }).catch(() => {
+
+    console.log("SW failed.");
+  });
+}
+
 new Vue({
   router,
   store,
