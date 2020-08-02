@@ -12,7 +12,7 @@ self.addEventListener('install', e => {
 
     caches.open('static').then(cache => {
 
-      return cache.addAll(['./']);
+      return cache.addAll(['./index.html']);
     }));
 
     console.log('Cache files.');
