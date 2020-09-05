@@ -4,7 +4,7 @@
         <v-form @submit.prevent="submit(post, name)">
             <v-container>
                 <v-row>
-                    <v-textarea v-model="post" placeholder="Wir machen heute Lagerfeuer ..." class="inputs"></v-textarea>
+                    <v-textarea autofocus v-model="post" placeholder="Wir machen heute Lagerfeuer ..." class="inputs"></v-textarea>
                 </v-row>
                 <v-row class="name-wrapper">
                     <v-text-field v-model="name" class="inputs" placeholder="Name (optional)"></v-text-field>

@@ -8,7 +8,7 @@
                     </v-card-title>
                 </v-card-text>
                 <v-card-actions class="additional-info">
-                    <span>{{ post.createdAt | date }}</span>
+                    <span>{{ post.createdAt.toDate() | date}}</span>
                     <span v-if="post.name">{{ post.name }}</span>
                 </v-card-actions>
             </v-card>
@@ -37,10 +37,22 @@ export default {
 
         date(value) {
 
-            let current_date = new Date().getDate()
-            let post_date = new Date(value * 1000).getDate()
+            let current_day = new Date().getDate()
+            let current_month = new Date().getMonth()
+            let current_year = new Date().getFullYear()
+
+            let post_day = value.getDate()
+            let post_month = value.getMonth()
+            let post_year = value.getFullYear()
             
-            return post_date == current_date ? 'Heute' : 'Wann anders'
+            if (current_day == post_day && current_month == post_month && current_year == post_year) {
+
+                return 'Heute'
+            }
+            else {
+
+                return 'Wann anders'
+            }
         }
     },
     methods: {
